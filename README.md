@@ -10,7 +10,7 @@ Let's pack/unpack NCP2 package!
 C언어로 개발하면 더 재밌고 머리아프겠지만, 파이썬도 손에 더 익힐 겸 파이썬으로 개발할 계획이다.
 
 ## 지금까지의 작업
-### v2022.3.15.0
+### v2022.3.17.0
 샘플로 ncp2파일 하나를 지정하여 분석한 (러프한)명세서.
 FTBL 명령의 경우 내부 file list 구조에 대한 명세가 필요하다. (이미 분석은 완료했지만 문서 구조가 잡히면 정리)
 
@@ -61,8 +61,15 @@ FTBL 명령의 경우 내부 file list 구조에 대한 명세가 필요하다. 
 
 # 109~112 size of command (byte)
 # 80090000 = 2432
-########################## 113~2544 data block of command
-
+########################## 113~2544 data block of command 
+[64 bytes loop]
+~108  file name
+~4  file size
+~4 00000000 : zero padding
+~4 file length
+~4 file_length repeat
+~4 zero padding
+[continue...]
 ########################## end
 
 # 2545~2548 command end
